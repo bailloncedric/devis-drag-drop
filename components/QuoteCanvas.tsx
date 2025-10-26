@@ -12,9 +12,11 @@ interface QuoteCanvasProps {
   logo: string | null;
   onSetLogo: (dataUrl: string) => void;
   onRemoveLogo: () => void;
+  quoteNumber: string;
+  onQuoteNumberChange: (value: string) => void;
 }
 
-const QuoteCanvas: React.FC<QuoteCanvasProps> = ({ items, onDropItem, onUpdateItem, onDeleteItem, logo, onSetLogo, onRemoveLogo }) => {
+const QuoteCanvas: React.FC<QuoteCanvasProps> = ({ items, onDropItem, onUpdateItem, onDeleteItem, logo, onSetLogo, onRemoveLogo, quoteNumber, onQuoteNumberChange }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const logoInputRef = useRef<HTMLInputElement>(null);
 
@@ -75,7 +77,12 @@ const QuoteCanvas: React.FC<QuoteCanvasProps> = ({ items, onDropItem, onUpdateIt
           <div className="flex justify-between items-start pb-8 border-b border-slate-200">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-slate-800">DEVIS</h1>
-              <input type="text" defaultValue="INV-2024-001" className="text-slate-500 mt-2 p-2 w-48 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"/>
+              <input 
+                type="text" 
+                value={quoteNumber}
+                onChange={(e) => onQuoteNumberChange(e.target.value)}
+                className="text-slate-500 mt-2 p-2 w-48 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              />
             </div>
             
             <div className="flex items-start justify-end">
