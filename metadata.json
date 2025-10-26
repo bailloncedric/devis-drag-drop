@@ -1,0 +1,5 @@
+{
+  "name": "Générateur de Devis par Glisser-Déposer",
+  "description": "Une application web intuitive pour créer des devis professionnels rapidement en utilisant une interface de glisser-déposer. Ajoutez, modifiez et organisez des services pour générer un devis prêt à être imprimé.",
+  "requestFramePermissions": []
+}
